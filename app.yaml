@@ -1,0 +1,49 @@
+AppConfig:
+  Port: 1338
+  AppEnv: dev
+  AppDebug: true
+  GraceWait: 5s
+
+DBConfig:
+  Type: mysql
+  Ip: 127.0.0.1
+#  Ip: 10.9.68.200
+  Port: 3306
+  User: root
+#  User: admin
+  Password: Redhat111
+  Database: test
+  Charset: utf8mb4
+  Collation: utf8mb4_unicode_ci
+  MaxIdleConns: 10
+  MaxOpenConns: 200
+  MaxLifetime: 1800s
+  MaxIdleTime: 300s
+  Timeout: 5s
+  ReadTimeout: 5s
+  WriteTimeout: 5s
+  ParseTime: true
+  Loc: Local
+
+RedisConfig:
+#  Addr: 10.9.68.200:6379
+  Addr: 127.0.0.1:6379
+  Password:
+  DB: 0
+
+Email:
+  User: xxx@qq.com
+  Pass: xxxxxx
+  Host: smtp.qq.com
+  Port: 465
+
+Dingtalk:
+  default:
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
+    Secret: xxxxxx
+  sops:
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
+    Secret: xxxxxx
+  kops:
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
+    Keyword: "毫无缚鸡之力的民工"
