@@ -46,7 +46,7 @@ $ bash dingtalk.sh '测试钉钉发送by curl'
 ### curl 请求邮件消息接口
 
 ```
-$ bash email.sh '470499989@qq.com,1186158664@qq.com' 'mail by curl subject' 'mail by curl context' 1 
+$ bash email.sh '470499998@qq.com,1186108666@qq.com' 'mail by curl subject' 'mail by curl context' 1 
 {"code":200,"data":"","message":"邮件发送成功"}%   
 ```
 
