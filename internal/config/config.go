@@ -26,11 +26,17 @@ type DingTalk struct {
 	Keyword   string
 }
 
+type Sonar struct {
+	Url 		string
+	Login 		string
+	Password 	string
+}
 
 var (
 	// CfgFile 配置文件路径
 	CfgFile string
 	DingTalkConfig = make(map[string]*DingTalk)
+	SonarConfig  Sonar
 )
 
 // LoadConfig read config from file.
@@ -64,7 +70,9 @@ func LoadConfig() (*viper.Viper, error) {
 		DingTalkConfig[k] = d
 	}
 
-	//fmt.Println(fmt.Println(DingTalkConfig["default"].Keyword))
+	if err := viperEntry.UnmarshalKey("SonarConfig", &SonarConfig); err != nil {
+		return nil, err
+	}
 
 	return viperEntry, nil
 }
@@ -98,7 +106,6 @@ func InitDBConf(viperEntry *viper.Viper) (*gorm.DB, error) {
 	return conf.ConnectDB()
 }
 
-// InitDBConf init redis
 func InitRedisConn(viperEntry *viper.Viper) (*redis.Client, error) {
 	conf := &db.RedisConn{}
 	if err := viperEntry.UnmarshalKey("RedisConfig", conf); err != nil {

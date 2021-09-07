@@ -6,12 +6,10 @@ AppConfig:
 
 DBConfig:
   Type: mysql
-  Ip: 127.0.0.1
-#  Ip: 10.9.68.200
+  Ip: 10.9.68.200
   Port: 3306
-  User: root
-#  User: admin
-  Password: Redhat111
+  User: admin
+  Password: Rxxxxx
   Database: test
   Charset: utf8mb4
   Collation: utf8mb4_unicode_ci
@@ -26,24 +24,28 @@ DBConfig:
   Loc: Local
 
 RedisConfig:
-#  Addr: 10.9.68.200:6379
-  Addr: 127.0.0.1:6379
+  Addr: 10.9.68.200:6379
   Password:
   DB: 0
 
+SonarConfig:
+  Url: http://10.9.19.120:9000
+  Login: admin
+  Password: Rxxxx
+
 Email:
-  User: xxx@qq.com
+  User: xxxxx@qq.com
   Pass: xxxxxx
   Host: smtp.qq.com
   Port: 465
 
 Dingtalk:
   default:
-    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
-    Secret: xxxxxx
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxx
+    Secret: xxxxx
   sops:
-    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
-    Secret: xxxxxx
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxx
+    Secret: xxxxx
   kops:
-    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxx
+    Webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxx
     Keyword: "毫无缚鸡之力的民工"

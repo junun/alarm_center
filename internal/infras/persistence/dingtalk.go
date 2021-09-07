@@ -37,7 +37,6 @@ func NewDingtalkRepository(rdb *redis.Client) repo.DingTalkRepository {
 
 func (d *dingtalkRepo) GenerateClient(name string) (*repo.DingTalkClient, error) {
 	var client *repo.DingTalkClient
-
 	if name != ""  {
 		client = &repo.DingTalkClient{
 			Webhook: config.DingTalkConfig[name].Webhook,

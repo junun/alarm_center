@@ -11,7 +11,9 @@ require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
+	github.com/rs/zerolog v1.24.0 // indirect
 	github.com/spf13/viper v1.8.1 // indirect
 	github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77 // indirect
 	go.uber.org/dig v1.12.0 // indirect

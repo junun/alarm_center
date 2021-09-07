@@ -30,7 +30,7 @@ type ClusterConn struct {
 	DB 			int
 }
 
-func  (r *RedisConn) ConnectDB() (*redis.Client) {
+func  (r *RedisConn) ConnectDB() *redis.Client {
 	var rdb *redis.Client
 	rdb = redis.NewClient(&redis.Options{
 		Addr: r.Addr,

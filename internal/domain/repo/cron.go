@@ -6,7 +6,6 @@ type Job struct {
 	Cmd 	func()
 }
 
-
 type CronRepository interface {
 	JobList() map[string]string
 	NewLocalJob(job *Job) error

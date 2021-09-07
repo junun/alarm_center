@@ -25,9 +25,4 @@ sendmsg:
     - echo $CI_PROJECT_NAME
     - echo $CI_COMMIT_REF_NAME
     - |
-      /usr/bin/curl --request POST --url http://127.0.0.1:1338/api/v1/email/  \
-      --header "content-type: multipart/form-data"  --form mail_from=470499989@qq.com \
-      --form mail_to=${GITLAB_USER_EMAIL} \
-      --form subject=${CI_PROJECT_NAME} \
-      --form mail_type=1  \
-      --form content="用户$GITLAB_USER_EMAIL在项目$CI_PROJECT_NAME的$CI_COMMIT_REF_NAME分支提交新的内容并触发sonar检查，检查结果请打开http://10.9.68.200:9000/dashboard?id=$CI_PROJECT_NAME"
+      /usr/bin/curl --request GET --url http://127.0.0.1:1338/api/v1/sonar/${CI_PROJECT_NAME}/${GITLAB_USER_EMAIL}

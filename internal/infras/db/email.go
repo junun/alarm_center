@@ -9,7 +9,7 @@ type EmailConfig struct {
 	Port	int
 }
 
-func  (e *EmailConfig) InitDialer() (*gomail.Dialer) {
+func  (e *EmailConfig) InitDialer() *gomail.Dialer {
 	return gomail.NewDialer(e.Host, e.Port, e.User, e.Pass)
 }
 

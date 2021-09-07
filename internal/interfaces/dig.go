@@ -23,8 +23,11 @@ func BuildContainer() *dig.Container {
 	// DB
 	container.Provide(config.InitDBConf)
 
-	// DB
+	// cron
 	container.Provide(db.NewCron)
+
+	// sonar
+	container.Provide(db.InitSonarClient)
 
 	// redis
 	container.Provide(config.InitRedisConn)
@@ -44,6 +47,10 @@ func BuildContainer() *dig.Container {
 	//cron
 	container.Provide(persistence.NewCronRepository)
 	container.Provide(service.NewCronService)
+
+	// sonar
+	container.Provide(persistence.NewSonarRepository)
+	container.Provide(service.NewSonarService)
 
 	container.Provide(NewServer)
 

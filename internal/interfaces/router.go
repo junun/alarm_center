@@ -14,6 +14,7 @@ func (s *Server) InitRouter() {
 	r.GET("/check", HealthCheck)
 
 	apiV1 := s.router.Group("/api/v1")
+	s.sonarRoutes(apiV1)
 	s.userRoutes(apiV1)
 	s.dingtalkRoutes(apiV1)
 	s.emailRoutes(apiV1)
@@ -45,14 +46,25 @@ func (s *Server) dingtalkRoutes(api *gin.RouterGroup) {
 }
 
 func (s *Server) emailRoutes(api *gin.RouterGroup) {
-	dingtalkRoutes := api.Group("/email")
+	emailRoutes := api.Group("/email")
 	{
 		var emSvc *service.EmailService
 		s.container.Invoke(func(em *service.EmailService) {
 			emSvc   = em
 		})
 
-		dingtalkRoutes.POST("/", emSvc.SendEmail)
+		emailRoutes.POST("/", emSvc.SendEmail)
+	}
+}
+
+func (s *Server) sonarRoutes(api *gin.RouterGroup) {
+	sonarRoutes := api.Group("/sonar")
+	{
+		var sonarSvc *service.SonarService
+		s.container.Invoke(func(sonar *service.SonarService) {
+			sonarSvc   = sonar
+		})
+		sonarRoutes.GET("/:name/:email", sonarSvc.GetMeasuresComponent)
 	}
 }
 
